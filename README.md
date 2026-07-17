@@ -301,4 +301,3 @@ The backend runs on Render's free tier and the database on TiDB Serverless free 
 
 Fatema Bohra
 - GitHub: [@FatemaBohra](https://github.com/FatemaBohra)
-- Portfolio: [your-portfolio-url]
