@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin("https://localhost:3000")
+@CrossOrigin({"https://localhost:3000", "https://luv2read-library.vercel.app"})
 @RestController
 @RequestMapping("/api/messages")
 public class MessagesController {
