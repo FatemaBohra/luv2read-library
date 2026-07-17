@@ -1,0 +1,21 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Backend (Maven / Spring Boot)
+02-backend/spring-boot-library/target/
+02-backend/spring-boot-library/.idea/
+02-backend/spring-boot-library/*.iml
+02-backend/spring-boot-library/.mvn/wrapper/maven-wrapper.jar
+
+# Frontend (React / CRA)
+03-frontend/react-library/node_modules/
+03-frontend/react-library/build/
+03-frontend/react-library/coverage/
+03-frontend/react-library/.env.local
+03-frontend/react-library/.env.development.local
+03-frontend/react-library/.env.test.local
+03-frontend/react-library/.env.production.local
+03-frontend/react-library/npm-debug.log*
+03-frontend/react-library/yarn-debug.log*
+03-frontend/react-library/yarn-error.log*
