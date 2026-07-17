@@ -26,6 +26,13 @@ export const PaymentPage = () => {
                     }
                 };
                 const paymentResponse = await fetch(url, requestOptions);
+                if (paymentResponse.status === 404) {
+                    // No Payment record yet means the user has never checked out a
+                    // book, which is equivalent to owing nothing.
+                    setFees(0);
+                    setLoadingFees(false);
+                    return;
+                }
                 if (!paymentResponse.ok) {
                     throw new Error('Something went wrong!')
                 }
@@ -53,7 +60,7 @@ export const PaymentPage = () => {
         const accessToken = await getAccessTokenSilently();
         let paymentInfo = new PaymentInfoRequest(Math.round(fees * 100), 'USD', user?.email);
 
-        const url = `https://localhost:8443/api/payment/secure/payment-intent`;
+        const url = `${process.env.REACT_APP_API}/payment/secure/payment-intent`;
         const requestOptions = {
             method: 'POST',
             headers: {
@@ -84,7 +91,7 @@ export const PaymentPage = () => {
                 setSubmitDisabled(false)
                 alert('There was an error')
             } else {
-                const url = `https://localhost:8443/api/payment/secure/payment-complete`;
+                const url = `${process.env.REACT_APP_API}/payment/secure/payment-complete`;
                 const requestOptions = {
                     method: 'PUT',
                     headers: {
